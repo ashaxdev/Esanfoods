@@ -539,7 +539,7 @@
     .products-grid { grid-template-columns: 1fr; }
     .cat-grid { grid-template-columns: repeat(2, 1fr); }
     .hero-circle { width: 260px; height: 260px; }
-    .hero-emoji { font-size: 5rem; }
+    /* .hero-emoji { font-size: 5rem; } */
   }
 
   @media (max-width: 380px) {
@@ -548,6 +548,21 @@
     .newsletter-form { flex-direction: column; align-items: stretch; }
     .newsletter-input { min-width: unset; }
   }
+  .hero-logo {
+  width: 100%;   /* controls size inside circle */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* IMPORTANT: keeps logo ratio */
+  border-radius: 50%; /* optional if you want rounded logo */
+  filter: drop-shadow(0 8px 20px rgba(26,46,20,0.2));
+}
 </style>
 </head>
 <body>
@@ -594,7 +609,9 @@
   </div>
   <div class="hero-visual">
     <div class="hero-circle">
-      <div class="hero-emoji">🌿</div>
+      <div class="hero-logo">
+  <img src="esanfoodlogo.jpeg" alt="Logo">
+</div>
       <div class="floating-tag tag-1">🌾 Whole grain blends</div>
       <div class="floating-tag tag-2">✨ Small batch crafted</div>
       <div class="floating-tag tag-3">🍃 Zero preservatives</div>
