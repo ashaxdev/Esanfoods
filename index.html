@@ -248,6 +248,7 @@
   .cat-icon { font-size: 2.2rem; margin-bottom: 0.8rem; position: relative; z-index: 1; }
   .cat-name { font-weight: 600; font-size: 0.9rem; position: relative; z-index: 1; transition: color 0.3s; }
   .cat-count { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; position: relative; z-index: 1; transition: color 0.3s; }
+  
 
   /* PRODUCTS */
   .section-header {
@@ -281,7 +282,7 @@
     border-color: rgba(46,107,37,0.3);
   }
   .product-img-wrap {
-    background: linear-gradient(135deg, #CCE5C0, #B2D49E);
+    /* background: linear-gradient(135deg, #CCE5C0, #B2D49E); */
     height: 200px; display: flex; align-items: center; justify-content: center;
     position: relative; overflow: hidden;
   }
@@ -563,6 +564,26 @@
   border-radius: 50%; /* optional if you want rounded logo */
   filter: drop-shadow(0 8px 20px rgba(26,46,20,0.2));
 }
+
+.product-image {
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.05);
+}
 </style>
 </head>
 <body>
@@ -788,14 +809,21 @@
 
 <script>
 const products = [
-  { id: 1, name: 'Ancient Grain Medley', category: 'grain', tag: 'bestseller', emoji: '🌾', price: 449, oldPrice: 549, rating: 4.9, reviews: 312, desc: 'Quinoa, amaranth, millet & sorghum blend. Perfect for breakfast bowls and porridge.', weight: '500g' },
-  { id: 2, name: 'Wildcraft Trail Mix', category: 'nut', tag: 'new', emoji: '🥜', price: 389, oldPrice: null, rating: 4.8, reviews: 142, desc: 'Cashews, almonds, dried figs, raisins & pumpkin seeds — energy on the go.', weight: '400g' },
-  { id: 3, name: 'Ayurvedic Spice Blend', category: 'spice', tag: 'bestseller', emoji: '🌶️', price: 279, oldPrice: 349, rating: 5.0, reviews: 489, desc: 'Turmeric, black pepper, cardamom, ashwagandha — ancient wisdom in every pinch.', weight: '200g' },
-  { id: 4, name: 'Forest Floor Herb Mix', category: 'herb', tag: 'new', emoji: '🌿', price: 319, oldPrice: null, rating: 4.7, reviews: 86, desc: 'Moringa, tulsi, brahmi, nettle — a grounding blend for teas and cooking.', weight: '150g' },
-  { id: 5, name: 'Superfood Seed Boost', category: 'superfood', tag: 'sale', emoji: '💚', price: 499, oldPrice: 699, rating: 4.8, reviews: 201, desc: 'Chia, flax, hemp, sunflower & sesame — nutrient density in every spoon.', weight: '300g' },
-  { id: 6, name: 'Kerala Masala Blend', category: 'spice', tag: 'bestseller', emoji: '🍛', price: 259, oldPrice: null, rating: 4.9, reviews: 377, desc: 'Authentic Kerala spice profile with stone-ground coconut, curry leaf & kodampuli.', weight: '180g' },
-  { id: 7, name: 'Protein Power Mix', category: 'grain', tag: 'new', emoji: '🫘', price: 529, oldPrice: null, rating: 4.6, reviews: 63, desc: 'Black lentils, chickpea, mung bean & pea — plant protein for active lifestyles.', weight: '600g' },
-  { id: 8, name: 'Golden Milk Blend', category: 'superfood', tag: 'sale', emoji: '✨', price: 349, oldPrice: 449, rating: 4.9, reviews: 553, desc: 'Ceremonial turmeric, ginger, cinnamon & vanilla — warm, golden, magical.', weight: '250g' },
+  { id: 1, name: 'Ancient Grain Medley', category: 'grain', tag: 'bestseller', image: 'esanproduct1.jpeg', price: 449, oldPrice: 549, rating: 4.9, reviews: 312, desc: 'Quinoa, amaranth, millet & sorghum blend.', weight: '500g' },
+
+  { id: 2, name: 'Wildcraft Trail Mix', category: 'nut', tag: 'new', image: 'esanproduct2.jpeg', price: 389, oldPrice: null, rating: 4.8, reviews: 142, desc: 'Cashews, almonds, dried figs.', weight: '400g' },
+
+  { id: 3, name: 'Ayurvedic Spice Blend', category: 'spice', tag: 'bestseller', image: 'esanproduct3.jpeg', price: 279, oldPrice: 349, rating: 5.0, reviews: 489, desc: 'Turmeric, pepper, cardamom.', weight: '200g' },
+
+  { id: 4, name: 'Forest Floor Herb Mix', category: 'herb', tag: 'new', image: 'esanproduct4.jpeg', price: 319, oldPrice: null, rating: 4.7, reviews: 86, desc: 'Moringa, tulsi, brahmi.', weight: '150g' },
+
+  { id: 5, name: 'Superfood Seed Boost', category: 'superfood', tag: 'sale', image: 'esanproduct5.jpeg', price: 499, oldPrice: 699, rating: 4.8, reviews: 201, desc: 'Chia, flax, hemp.', weight: '300g' },
+
+  { id: 6, name: 'Kerala Masala Blend', category: 'spice', tag: 'bestseller', image: 'esanproduct6.jpeg', price: 259, oldPrice: null, rating: 4.9, reviews: 377, desc: 'Authentic Kerala spices.', weight: '180g' },
+
+  { id: 7, name: 'Protein Power Mix', category: 'grain', tag: 'new', image: 'esanproduct7.jpeg', price: 529, oldPrice: null, rating: 4.6, reviews: 63, desc: 'Plant protein mix.', weight: '600g' },
+
+  { id: 8, name: 'Golden Milk Blend', category: 'superfood', tag: 'sale', image: 'esanproduct8.jpeg', price: 349, oldPrice: 449, rating: 4.9, reviews: 553, desc: 'Turmeric + spices.', weight: '250g' },
 ];
 
 let cart = [];
@@ -812,24 +840,42 @@ const track = document.getElementById('marqueeTrack');
 function renderProducts(filter = 'all') {
   const grid = document.getElementById('productsGrid');
   const filtered = filter === 'all' ? products : products.filter(p => p.tag === filter);
+
   grid.innerHTML = filtered.map(p => `
     <div class="product-card">
       <div class="product-img-wrap">
-        <div class="product-emoji">${p.emoji}</div>
-        ${p.tag ? `<div class="product-badge ${p.tag}">${p.tag === 'bestseller' ? '🔥 Bestseller' : p.tag === 'new' ? '✦ New' : '% Sale'}</div>` : ''}
+        
+        <div class="product-image">
+          <img src="${p.image}" alt="${p.name}">
+        </div>
+
+        ${p.tag ? `<div class="product-badge ${p.tag}">
+          ${p.tag === 'bestseller' ? '🔥 Bestseller' : p.tag === 'new' ? '✦ New' : '% Sale'}
+        </div>` : ''}
+
         <button class="product-wishlist" onclick="toggleWish(this);event.stopPropagation()">🤍</button>
       </div>
+
       <div class="product-info">
-        <div class="product-category">${p.category.charAt(0).toUpperCase() + p.category.slice(1)} Mix · ${p.weight}</div>
+        <div class="product-category">
+          ${p.category.charAt(0).toUpperCase() + p.category.slice(1)} Mix · ${p.weight}
+        </div>
+
         <div class="product-name">${p.name}</div>
         <div class="product-desc">${p.desc}</div>
+
         <div class="product-rating">
-          <span class="stars">${'★'.repeat(Math.floor(p.rating))}${'☆'.repeat(5-Math.floor(p.rating))}</span>
+          <span class="stars">${'★'.repeat(Math.floor(p.rating))}${'☆'.repeat(5 - Math.floor(p.rating))}</span>
           <span>${p.rating}</span>
           <span class="rating-count">(${p.reviews})</span>
         </div>
+
         <div class="product-footer">
-          <div class="product-price">₹${p.price}${p.oldPrice ? `<span class="old">₹${p.oldPrice}</span>` : ''}</div>
+          <div class="product-price">
+            ₹${p.price}
+            ${p.oldPrice ? `<span class="old">₹${p.oldPrice}</span>` : ''}
+          </div>
+
           <button class="add-btn" onclick="addToCart(${p.id})">+ Add</button>
         </div>
       </div>
